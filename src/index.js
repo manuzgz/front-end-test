@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import App from './App';
-import { CartProvider } from "./components/Cart/Cart";
+import { CartProvider } from './components/Cart/Cart';
 
 ReactDOM.render(
   <BrowserRouter>
@@ -11,5 +11,5 @@ ReactDOM.render(
       <App />
     </CartProvider>
   </BrowserRouter>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );

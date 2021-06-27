@@ -1,13 +1,12 @@
-import {useEffect, useState } from "react";
-import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
-import "./App.css";
-import Header from "./components/Layout/Header";
-import SearchBar from "./components/Layout/SearchBar";
-import ProductsList from "./components/Products/ProductsList";
-import ProductDetails from "./components/Products/ProductDetails";
+import React, { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+import './App.css';
+import Header from './components/Layout/Header';
+import SearchBar from './components/Layout/SearchBar';
+import ProductsList from './components/Products/ProductsList';
+import ProductDetails from './components/Products/ProductDetails';
 
 function App() {
-
   const appLocalStorage = window.localStorage;
   const productsInCache = appLocalStorage.products ? JSON.parse(appLocalStorage.products) : [];
 
@@ -16,31 +15,29 @@ function App() {
   const [filtered, setFilterState] = useState(false);
 
   useEffect(() => {
-    setFilterState(false)
+    setFilterState(false);
   }, []);
 
   useEffect(() => {
     function fetchProductsHandler() {
-        setFilterState(false);
-        fetch("https://front-test-api.herokuapp.com/api/product")
-        .then((response) => {
-          return response.json();
-        })
+      setFilterState(false);
+      fetch('https://front-test-api.herokuapp.com/api/product')
+        .then((response) => response.json())
         .then((data) => {
           setProducts(data);
-          let expirationTime = Date.now() + 1000 * 60 * 60; // 1 h
+          const expirationTime = Date.now() + 1000 * 60 * 60; // 1 h
           appLocalStorage.setItem('expirationTime', expirationTime);
           appLocalStorage.setItem('products', JSON.stringify(data));
         });
-    };
+    }
 
-    if(!appLocalStorage.products) {
+    if (!appLocalStorage.products) {
       fetchProductsHandler();
     }
   }, [appLocalStorage]);
 
-  useEffect(() => { 
-    if(appLocalStorage.expirationTime && appLocalStorage.expirationTime < Date.now()) {
+  useEffect(() => {
+    if (appLocalStorage.expirationTime && appLocalStorage.expirationTime < Date.now()) {
       appLocalStorage.clear();
     }
   }, [appLocalStorage]);
@@ -48,12 +45,12 @@ function App() {
   const onInputChangeHandler = (e) => {
     let currentList = products;
     let newList = [];
-    
-    if (e.target.value !== "") {
+
+    if (e.target.value !== '') {
       currentList = products;
       setFilterState(true);
       newList = currentList.filter((item) => {
-        const lowerCase = (item.brand + " " + item.model).toLowerCase();
+        const lowerCase = (`${item.brand} ${item.model}`).toLowerCase();
         const filter = e.target.value.toLowerCase();
         return lowerCase.includes(filter);
       });
@@ -67,18 +64,17 @@ function App() {
   const onResetFilterHandler = () => {
     setFilterState(false);
   };
- 
 
   return (
     <Router>
-      <Header></Header>
-      <main>    
+      <Header />
+      <main>
         <Route exact path="/details/:productId">
-            <ProductDetails></ProductDetails>
+          <ProductDetails />
         </Route>
         <Route path="/home">
           <SearchBar onChange={onInputChangeHandler} />
-          <ProductsList products={ filtered ? filteredProducts : products} onResetFilterHandler={onResetFilterHandler} />
+          <ProductsList products={filtered ? filteredProducts : products} onResetFilterHandler={onResetFilterHandler} />
         </Route>
         <Route exact path="/">
           <Redirect to="/home" />
@@ -87,7 +83,7 @@ function App() {
           <Redirect to="/home" />
         </Route>
       </main>
-      </Router>
+    </Router>
   );
 }
 
