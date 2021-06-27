@@ -1,0 +1,39 @@
+.productDetails {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0px 1px 5px #ccc;
+    background-color: #fff;
+    max-width: 90vw;
+    margin: 0 auto 20px;
+}
+
+.productDetails div {
+    flex: 1 1 300px;
+}
+
+.productDetails ul, .productDetails li {
+    list-style: disc;
+    margin: 0 15px;
+}
+
+.productDetails h3 li,
+.productDetails h2 li {
+    list-style: none;
+    margin-left: 0;
+}
+
+.productDetails h2 {
+    display: inline-block;
+    font-size: 36px;
+}
+
+.productDetails h3 {
+    font-size: 30px;
+}
+
+
+

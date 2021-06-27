@@ -1,0 +1,62 @@
+.checkout {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    border: 2px solid #eee;
+    border-radius: 4px;
+}
+
+.checkout div.options {
+    flex: 1 1 50%;
+    padding: 20px;
+}
+
+.checkout div.options select {
+    margin: 10px;
+    padding: 5px;
+    font-size: 16px;
+    min-width: 150px;
+    cursor: pointer;
+}
+
+.checkout div.options input {
+    cursor: pointer;
+}
+
+
+
+.checkout div.addToCart {
+    flex: 1 0 40%;
+    padding: 0;
+    margin: 10px;
+    display: flex;
+    align-content: center;
+}
+
+.checkout button {
+    flex: 1 1 500px;
+    width: 100%;
+    height: 50px;
+    background-color: #22628d;
+    color: #fff;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.checkout button:hover {
+    background-color: #06558a; 
+}
+
+.checkout button:disabled,
+.checkout button[disabled]{
+    display: none;
+}
+
+@media (max-width: 760px) {
+    .checkout {
+        margin-top: 20px;
+    }
+}

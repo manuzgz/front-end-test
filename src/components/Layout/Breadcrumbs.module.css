@@ -1,0 +1,31 @@
+.breadcrumbs {
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0px 1px 5px #ccc;
+    background-color: #666;
+    max-width: 90vw;
+    margin: 10px auto;
+    color: #ccc;
+}
+
+.breadcrumbs ul {
+    display: flex;
+    list-style: none;
+    justify-content: left;
+  }
+  
+  .breadcrumbs li a {
+    padding: 0 10px;
+    text-decoration: none;
+    display: block;
+    color: #ccc;
+  }
+  
+  .breadcrumbs li a.active {
+    color: #fff;
+  }
+
+  .breadcrumbs li a:hover {
+    color: #fff;
+    text-decoration: underline;
+  }

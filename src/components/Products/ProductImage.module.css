@@ -1,0 +1,21 @@
+.productImage {
+    text-align: center;
+    border: 2px solid #eee;
+    border-radius: 4px;
+    padding: 20px;
+    margin-right: 20px;
+}
+
+.productImage img {
+    width: 80%;
+    max-width: 300px;
+    height: auto;
+    margin: 0 auto;
+}
+
+@media (max-width: 760px) {
+    .productImage {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+}
