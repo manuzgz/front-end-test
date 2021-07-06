@@ -33,7 +33,7 @@ Para desplegarla en Firebase deberemos ejecutar los siguientes comandos:
 * npm run build
 * firebase deploy
 
-* Podemos ver la aplicación en ejecución en [Firebase](https://front-end-test-98779.web.app/home)
+* Podemos ver la aplicación en ejecución en [Firebase](https://front-end-test-98779.firebaseapp.com/home)
 
 ---
 
